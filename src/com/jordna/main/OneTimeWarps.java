@@ -14,6 +14,7 @@ public class OneTimeWarps extends JavaPlugin
     public void onEnable()
     {
 	warpManager = new WarpManager(this);
+	warpManager.parseWarps();
 	
 	getCommand("warp").setExecutor(new WarpCommands(this));
     }

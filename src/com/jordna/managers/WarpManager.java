@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 
 import com.jordna.main.OneTimeWarps;
 import com.jordna.warps.Warp;
@@ -20,6 +22,28 @@ public class WarpManager
 	main = instance;
     }
  
+    public void parseWarps()
+    {
+	for (String key : main.getConfig().getKeys(false))
+	{
+	    Warp warp = new Warp();
+	    warp.name = key;
+	    
+	    World world = Bukkit.getWorld(main.getConfig().getString(key + ".location.world"));
+	    double x = main.getConfig().getDouble(key + ".location.x");
+	    double y = main.getConfig().getDouble(key + ".location.y");
+	    double z = main.getConfig().getDouble(key + ".location.z");
+	    float yaw = (float)main.getConfig().getDouble(key + ".location.yaw");
+	    float pitch = (float)main.getConfig().getDouble(key + ".location.pitch");
+	    
+	    Location location = new Location(world, x, y, z, yaw, pitch);
+	    
+	    warp.location = location;
+	    
+	    warps.add(warp);
+	}
+    }
+    
     public Warp getWarp(String name)
     {
 	for (Warp warp : warps)
@@ -76,6 +100,7 @@ public class WarpManager
 	
 	for (Warp warp : warps)
 	{
+	    main.getConfig().set(warp.name + ".location.world", warp.location.getWorld().getName());
 	    main.getConfig().set(warp.name + ".location.x", warp.location.getX());
 	    main.getConfig().set(warp.name + ".location.y", warp.location.getY());
 	    main.getConfig().set(warp.name + ".location.z", warp.location.getZ());
