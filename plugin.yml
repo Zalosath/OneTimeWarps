@@ -1,0 +1,10 @@
+name: OneTimeWarps
+main: com.jordna.main.OneTimeWarps
+author: CraftCreeper6
+version: 0.0.1
+description: Warp to a location once, it will be deleted after that
+
+commands:
+    warp:
+        description: Warps to a set warp
+        usage: /warp [warp name]
