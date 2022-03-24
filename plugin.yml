@@ -5,6 +5,6 @@ version: 0.0.1
 description: Warp to a location once, it will be deleted after that
 
 commands:
-    warp:
+    owarp:
         description: Warps to a set warp
-        usage: /warp [warp name]
+        usage: /owarp [warp name]

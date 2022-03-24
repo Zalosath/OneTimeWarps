@@ -31,11 +31,11 @@ public class WarpCommands implements CommandExecutor
 	
 	Player player = (Player) sender;
 	
-	if (cmd.getName().equalsIgnoreCase("warp"))
+	if (cmd.getName().equalsIgnoreCase("owarp"))
 	{
 	    if (args.length < 1)
 	    {
-		player.sendMessage(ChatColor.RED + "Correct usage is: /warp [warp name]");
+		player.sendMessage(ChatColor.RED + "Correct usage is: /owarp [warp name]");
 		return true;
 	    }
 	    
@@ -43,7 +43,7 @@ public class WarpCommands implements CommandExecutor
 	    {
 		if (args.length < 2)
 		{
-		    player.sendMessage(ChatColor.RED + "Correct usage is: /warp add [warp name]");
+		    player.sendMessage(ChatColor.RED + "Correct usage is: /owarp add [warp name]");
 		    return true;
 		}
 		
